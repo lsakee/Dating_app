@@ -15,10 +15,11 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="300dp"
         android:id="@+id/profileImageArea"
         android:src="@drawable/no"/>
     <TextView
+        android:id="@+id/itemNickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name"
@@ -27,6 +28,7 @@
         android:textSize="30dp"
         android:layout_margin="5dp"/>
     <TextView
+        android:id="@+id/itemAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Age"
@@ -35,6 +37,7 @@
         android:textSize="30dp"
         android:layout_margin="5dp"/>
     <TextView
+        android:id="@+id/itemCity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="City"

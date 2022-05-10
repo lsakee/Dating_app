@@ -76,7 +76,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="닉네임"/>
+                android:hint="닉네임"
+                android:id="@+id/nicknameArea"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -89,7 +90,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="성별(M/W)"/>
+                android:hint="성별(M/W)"
+                android:id="@+id/genderArea"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,7 +104,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="지역"/>
+                android:hint="지역"
+                android:id="@+id/cityArea"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -113,7 +116,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="나이"/>
+                android:hint="나이"
+                android:id="@+id/ageArea"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
