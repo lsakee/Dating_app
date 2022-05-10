@@ -1,9 +1,14 @@
 package com.cookandroid.dating_app
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
+import com.cookandroid.dating_app.auth.IntroActivity
 import com.cookandroid.dating_app.slider.CardStackAdapter
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager
 import com.yuyakaido.android.cardstackview.CardStackListener
 import com.yuyakaido.android.cardstackview.CardStackView
@@ -17,6 +22,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val setting =findViewById<ImageView>(R.id.settingIcon)
+        setting.setOnClickListener {
+            val auth = Firebase.auth
+            auth.signOut()
+
+            val intent = Intent(this,IntroActivity::class.java)
+            startActivity(intent)
+        }
 
         val cardStackView = findViewById<CardStackView>(R.id.cardStackView)
 
