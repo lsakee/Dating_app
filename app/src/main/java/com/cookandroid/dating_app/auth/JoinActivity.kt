@@ -8,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
+import androidx.activity.result.ActivityResultCallback
+import androidx.activity.result.contract.ActivityResultContracts
 import com.cookandroid.dating_app.MainActivity
 import com.cookandroid.dating_app.R
 import com.cookandroid.dating_app.utils.FirebaseRef
@@ -33,6 +36,21 @@ class JoinActivity : AppCompatActivity() {
         setContentView(R.layout.activity_join)
 
         auth = Firebase.auth
+
+        //핸드폰 에서 이미지 받아오기
+        val profileImage = findViewById<ImageView>(R.id.imageArea)
+        val getAction = registerForActivityResult(
+            ActivityResultContracts.GetContent(),
+            ActivityResultCallback { uri ->
+                profileImage.setImageURI(uri)
+            }
+        )
+
+
+        profileImage.setOnClickListener {
+            getAction.launch("image/*")
+        }
+
         val joinBtn = findViewById<Button>(R.id.joinBtn)
 
         joinBtn.setOnClickListener {

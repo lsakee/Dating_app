@@ -16,6 +16,7 @@
 
 
         <ImageView
+            android:id="@+id/imageArea"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/profile_img"
