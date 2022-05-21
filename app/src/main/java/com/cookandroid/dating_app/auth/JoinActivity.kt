@@ -54,7 +54,7 @@ class JoinActivity : AppCompatActivity() {
 
 
         profileImage.setOnClickListener {
-            getAction.launch("simagee/*")
+            getAction.launch("image/*")
         }
 
         val joinBtn = findViewById<Button>(R.id.joinBtn)
