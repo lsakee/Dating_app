@@ -20,6 +20,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
        // val uid=auth.currentUser?.uid.toString()
+        //
         val uid = FirebaseAuthUtils.getUid()
         if(uid=="null"){
             Handler().postDelayed({
