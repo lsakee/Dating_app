@@ -11,6 +11,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import com.cookandroid.dating_app.MainActivity
@@ -54,7 +55,7 @@ class JoinActivity : AppCompatActivity() {
 
 
         profileImage.setOnClickListener {
-            getAction.launch("issmage/*")
+            getAction.launch("image/*")
         }
 
         val joinBtn = findViewById<Button>(R.id.joinBtn)
@@ -63,6 +64,13 @@ class JoinActivity : AppCompatActivity() {
 
             val email = findViewById<TextInputEditText>(R.id.emailArea)
             val pwd = findViewById<TextInputEditText>(R.id.pwdArea)
+
+//            val emailCheck = email.text.toString()
+//            if(emailCheck.isEmpty()){
+//                Toast.makeText(this,"비어있음",Toast.LENGTH_LONG).show()
+//            }else{
+//                Toast.makeText(this,"비어있지 않음",Toast.LENGTH_LONG).show()
+//            }
 
             gender=findViewById<TextInputEditText>(R.id.genderArea).text.toString()
             city=findViewById<TextInputEditText>(R.id.cityArea).text.toString()
@@ -89,9 +97,8 @@ class JoinActivity : AppCompatActivity() {
                         FirebaseRef.userInfoRef.child(uid).setValue(userModel)
                         uploadImage(uid)
 
-
-//                        val intent = Intent(this,MainActivity::class.java)
-//                        startActivity(intent)
+                        val intent = Intent(this,MainActivity::class.java)
+                        startActivity(intent)
 
                     } else {
                         // If sign in fails, display a message to the user.
@@ -101,7 +108,7 @@ class JoinActivity : AppCompatActivity() {
         }
 
     }
-    private fun uploadImage(uid : String){
+    private fun uploadImage(uid:String ){
 
         val storage = Firebase.storage
         val storageRef=storage.reference.child(uid+".png")

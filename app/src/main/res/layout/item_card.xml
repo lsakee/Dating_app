@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="403dp"
         android:id="@+id/profileImageArea"
-        android:src="@drawable/no"/>
+        />
     <TextView
         android:id="@+id/itemNickname"
         android:layout_width="wrap_content"
