@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import com.cookandroid.dating_app.auth.IntroActivity
 import com.cookandroid.dating_app.auth.UserDataModel
 import com.cookandroid.dating_app.setting.SettingActivity
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var manager: CardStackLayoutManager
     private var TAG = "MainActivity"
     private val usersDataList = mutableListOf<UserDataModel>()
+    private var userCount = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -50,6 +52,19 @@ class MainActivity : AppCompatActivity() {
 
             override fun onCardSwiped(direction: Direction?) {
 
+                if(direction==Direction.Right){
+                    Toast.makeText(this@MainActivity,"right",Toast.LENGTH_SHORT).show()
+                }
+
+                if(direction==Direction.Left){
+                    Toast.makeText(this@MainActivity,"left",Toast.LENGTH_SHORT).show()
+                }
+
+                userCount=userCount+1
+                if(userCount== usersDataList.count()){
+                    getUserDataList()
+                    Toast.makeText(this@MainActivity,"유저 새롭게 받기",Toast.LENGTH_LONG).show()
+                }
             }
 
             override fun onCardRewound() {
