@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.ImageView
 import com.cookandroid.dating_app.auth.IntroActivity
 import com.cookandroid.dating_app.auth.UserDataModel
+import com.cookandroid.dating_app.setting.SettingActivity
 import com.cookandroid.dating_app.slider.CardStackAdapter
 import com.cookandroid.dating_app.utils.FirebaseRef
 import com.google.firebase.auth.ktx.auth
@@ -33,10 +34,10 @@ class MainActivity : AppCompatActivity() {
 
         val setting =findViewById<ImageView>(R.id.settingIcon)
         setting.setOnClickListener {
-            val auth = Firebase.auth
-            auth.signOut()
-
-            val intent = Intent(this,IntroActivity::class.java)
+//            val auth = Firebase.auth
+//            auth.signOut()
+//
+            val intent = Intent(this,SettingActivity::class.java)
             startActivity(intent)
         }
 

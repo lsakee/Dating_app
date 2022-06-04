@@ -88,8 +88,8 @@ class JoinActivity : AppCompatActivity() {
 
                         val userModel = UserDataModel(
                             uid,
-                            nickname,
                             age,
+                            nickname,
                             gender,
                             city
                         )
