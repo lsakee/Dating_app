@@ -150,7 +150,31 @@ class MainActivity : AppCompatActivity() {
     //유저의 좋아료를 표시하는 부분
     //나의 uid,상대 uid
     private fun userLikeOtherUser(myUid : String,otherUid : String){
-        FirebaseRef.userLikeRef.child(uid).child(otherUid).setValue("true")
-    }
 
+        FirebaseRef.userLikeRef.child(uid).child(otherUid).setValue("true")
+
+    }
+//내가 좋아요한 사람이 누구를 좋아하는지 알수 있음
+    private fun getOtherUserLikeList(otherUid: String){
+        val postListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+//리스트안에서 나의 Uid가 있는 지확인하기
+                for (dataModel in dataSnapshot.children) {
+                    val likeUserKey = dataModel.key.toString()
+                    if(likeUserKey.equals(uid)){
+                        Toast.makeText(this@MainActivity,"매칭완료",Toast.LENGTH_SHORT).show()
+                    }
+
+                }
+
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
+            }
+        }
+        FirebaseRef.userInfoRef.child(otherUid).addValueEventListener(postListener)
+
+    }
 }
