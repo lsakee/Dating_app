@@ -1,12 +1,18 @@
 package com.cookandroid.dating_app
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.bumptech.glide.Glide
 import com.cookandroid.dating_app.auth.IntroActivity
 import com.cookandroid.dating_app.auth.UserDataModel
@@ -163,6 +169,8 @@ class MainActivity : AppCompatActivity() {
                     val likeUserKey = dataModel.key.toString()
                     if(likeUserKey.equals(uid)){
                         Toast.makeText(this@MainActivity,"매칭완료",Toast.LENGTH_SHORT).show()
+                        createNotificationChannel()
+                        sendNotification()
                     }
 
                 }
@@ -177,4 +185,33 @@ class MainActivity : AppCompatActivity() {
         FirebaseRef.userInfoRef.child(otherUid).addValueEventListener(postListener)
 
     }
+    //notication
+    private fun createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = "name"
+            val descriptionText = "description"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel("test-channel", name, importance).apply {
+                description = descriptionText
+            }
+            // Register the channel with the system
+            val notificationManager: NotificationManager =
+                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
+
+    private fun sendNotification(){
+        var builder = NotificationCompat.Builder(this, "test-channel")
+            .setSmallIcon(R.drawable.ic_launcher_background)
+            .setContentTitle("매칭완료")
+            .setContentText("매칭이 완료 저사람도 나좋아함")
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+        with(NotificationManagerCompat.from(this)){
+            notify(123,builder.build())
+        }
+    }
+
 }
