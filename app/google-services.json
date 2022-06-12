@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "74656262161",
+    "project_id": "sogaetingfinal-c3839",
+    "storage_bucket": "sogaetingfinal-c3839.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74656262161:android:d873dad3f69f394e9aa9b0",
+        "android_client_info": {
+          "package_name": "com.cookandroid.dating_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "74656262161-598cf4pu3mhtg7q0i186b0aicln93rbv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6DDRu7QlDyUyFdV26uHPFZ7C9vOZJu6Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "74656262161-598cf4pu3mhtg7q0i186b0aicln93rbv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
