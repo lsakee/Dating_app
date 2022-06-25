@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onCardRewound() {
-//
+
             }
 
             override fun onCardCanceled() {
