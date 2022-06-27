@@ -97,7 +97,7 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-
+////
 
         cardStackAdapter=CardStackAdapter(baseContext,usersDataList)
         cardStackView.layoutManager=manager
