@@ -3,6 +3,7 @@ package com.cookandroid.dating_app.message
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ListView
 import android.widget.Toast
 import com.cookandroid.dating_app.R
 import com.cookandroid.dating_app.auth.UserDataModel
@@ -19,15 +20,20 @@ class MyLikeListActivity : AppCompatActivity() {
     private val uid = FirebaseAuthUtils.getUid()
     private val likeUserListuid = mutableListOf<String>()
     private val likeUserList = mutableListOf<UserDataModel>()
-
+    lateinit var listviewAdapter : ListViewAdapte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_like_list)
-        //전체 유저의 대이터 받아오기
-        getUserDataList()
+
+        val userListview = findViewById<ListView>(R.id.userListView)
+        val listviewAdapter = ListViewAdapte(this,likeUserList)
+        userListview.adapter=listviewAdapter
+
         // 내가 좋아요한 사람들과
         getMyLikeList()
         //나를 좋아요한 사람의 리스트를 받아오기
+        // 전체 유정 중에서, 내가 좋아요한 사람들 가져와서
+        // 이사람이 나와 매칭이 되어있는지 확인하는것
     }
 
     private fun getMyLikeList(){
@@ -59,10 +65,12 @@ class MyLikeListActivity : AppCompatActivity() {
                 for (dataModel in dataSnapshot.children) {
 
                     val user = dataModel.getValue(UserDataModel::class.java)
+                    //전체 유저중에 내가좋아요한 사람들의 정보만 add
                     if(likeUserListuid.contains(user?.uid)){
                         likeUserList.add(user!!)
                     }
                 }
+                listviewAdapter.notifyDataSetChanged()
                 Log.d(TAG,likeUserList.toString())
             }
                 override fun onCancelled(databaseError: DatabaseError) {
