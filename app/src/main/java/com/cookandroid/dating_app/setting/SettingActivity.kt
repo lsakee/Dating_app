@@ -15,6 +15,12 @@ class SettingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting2)
 
+
+
+        //첫번재 방법으로는 앱에서 notification띄우기
+        //두번째 파이어베이스에서 모든앱에게 푸시보내기
+        //특정 사용자에게 메시지 보내기(Firebase console에서)
+        //앱에서 직접 다른사람에게 메시지 보내기
         val mybtn= findViewById<Button>(R.id.myPagebtn)
         mybtn.setOnClickListener {
             val intent = Intent(this,MyPageActivity::class.java)
