@@ -70,7 +70,7 @@ class MyLikeListActivity : AppCompatActivity() {
     private fun getMyLikeList(){
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-//리스트안에서 나의 Uid가 있는 지확인하기
+//리스트안에서 나의 Uid가 있는 지확인하기dla
                 for (dataModel in dataSnapshot.children) {
                //내가 좋아요한 사람들의 uid 가 라이크 에 들어있음
                     likeUserListuid.add(dataModel.key.toString())
