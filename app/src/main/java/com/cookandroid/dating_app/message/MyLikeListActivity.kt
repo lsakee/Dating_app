@@ -3,8 +3,11 @@ package com.cookandroid.dating_app.message
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.widget.Button
 import android.widget.ListView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.cookandroid.dating_app.R
 import com.cookandroid.dating_app.auth.UserDataModel
 import com.cookandroid.dating_app.message.fcm.NotiAPI
@@ -88,7 +91,7 @@ class MyLikeListActivity : AppCompatActivity() {
                         if(likeUserKey.equals(uid)) {
                             Toast.makeText(this@MyLikeListActivity, "매칭이 되었습니다.", Toast.LENGTH_LONG).show()
                             //dialog
-
+                            showDialog()
                         } else {
 //                            Toast.makeText(this@MyLikeListActivity, "매칭이 되지 않았습니다.", Toast.LENGTH_LONG).show()
                         }
@@ -167,6 +170,18 @@ class MyLikeListActivity : AppCompatActivity() {
 
     }
 
+    //dialog
+    private fun showDialog(){
+        val mDialogView = LayoutInflater.from(this).inflate(R.layout.custom_dialog,null)
+        val mBuilder = AlertDialog.Builder(this)
+            .setView(mDialogView)
+            .setTitle("메시지 보내기")
+        val mAlerDialog=mBuilder.show()
 
+        val btn = mAlerDialog.findViewById<Button>(R.id.sendBtnArea)
+        btn?.setOnClickListener {
+            mAlerDialog.dismiss()
+        }
+    }
 }
 
