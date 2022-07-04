@@ -7,6 +7,7 @@ import android.widget.Button
 import com.cookandroid.dating_app.R
 import com.cookandroid.dating_app.auth.IntroActivity
 import com.cookandroid.dating_app.message.MyLikeListActivity
+import com.cookandroid.dating_app.message.MymsgActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -31,6 +32,11 @@ class SettingActivity : AppCompatActivity() {
         myLikeBtn.setOnClickListener {
 
             val intent = Intent(this, MyLikeListActivity::class.java)
+            startActivity(intent)
+        }
+        val myMsg =findViewById<Button>(R.id.myMsg)
+        myMsg.setOnClickListener {
+            val intent = Intent(this, MymsgActivity::class.java)
             startActivity(intent)
         }
 

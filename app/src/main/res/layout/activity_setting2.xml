@@ -13,11 +13,19 @@
         android:text="MyPage"
         android:id="@+id/myPagebtn"/>
 
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="myMachting List"
         android:id="@+id/myLikeList"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="내가 받은 메시지"
+        android:id="@+id/myMsg"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
