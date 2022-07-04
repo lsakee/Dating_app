@@ -32,6 +32,7 @@ import com.yuyakaido.android.cardstackview.CardStackListener
 import com.yuyakaido.android.cardstackview.CardStackView
 import com.yuyakaido.android.cardstackview.Direction
 
+
 class MainActivity : AppCompatActivity() {
 
     lateinit var cardStackAdapter : CardStackAdapter
