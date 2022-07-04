@@ -20,6 +20,7 @@ import com.cookandroid.dating_app.setting.SettingActivity
 import com.cookandroid.dating_app.slider.CardStackAdapter
 import com.cookandroid.dating_app.utils.FirebaseAuthUtils
 import com.cookandroid.dating_app.utils.FirebaseRef
+import com.cookandroid.dating_app.utils.MyInfo
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -117,6 +118,8 @@ class MainActivity : AppCompatActivity() {
 
                 Log.d(TAG,data?.gender.toString())
                 currentUserGender = data?.gender.toString()
+
+                MyInfo.myNickname=data?.nickname.toString()
                 getUserDataList(currentUserGender)
             }
 
